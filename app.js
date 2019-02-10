@@ -17,7 +17,7 @@ app.set('port', (process.env.PORT || port));
 app.use(express.static(path.join(__dirname, 'public/')));
 // Serve vue from node_modules as vue/
 app.use('/vue', express.static(path.join(__dirname, '/node_modules/vue/dist/')));
-// Serve leaflet from node_modules as leflet/
+// Serve leaflet from node_modules as leaflet/
 app.use('/leaflet', express.static(path.join(__dirname, '/node_modules/leaflet/dist/')));
 // Serve esri leaflet geocoder from node_modules as esri-leaflet/
 app.use('/esri-leaflet', express.static(path.join(__dirname, '/node_modules/esri-leaflet/dist/')));

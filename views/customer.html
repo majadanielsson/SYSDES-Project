@@ -1,92 +1,93 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DELIVERY CUSTOMER</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DELIVERY CUSTOMER</title>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-  
-  <link rel="stylesheet" href="/leaflet/leaflet.css">
-  <link rel="stylesheet" href="/esri-leaflet-geocoder/esri-leaflet-geocoder.css">
-  <link rel="stylesheet" href="css/shared.css">
-  <script src="/vue/vue.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/leaflet/leaflet.js"></script>
-  <script src="/esri-leaflet/esri-leaflet.js"></script>
-  <script src="/esri-leaflet-geocoder/esri-leaflet-geocoder.js"></script>
-  <script src="js/customer.js" defer></script>
-</head>
-<body>
-
-
-  <div class="container">
-
-    <!--------- Personal information ---------->
-    <h3>Personal information</h3>
-    <form>
-      <div class="form-group">
-        <label for="name">First and sirname</label>
-        <input type="text" class="form-control" id="name">
-      </div>
-      <div class="form-group">
-        <label for="adress">Houseadress</label>
-        <input type="text" class="form-control" id="adress">
-      </div>
-      <div class="form-group">
-        <label for="postC">Postal code</label>
-        <input type="text" class="form-control" id="postC">
-      </div>
-      <div class="form-group">
-        <label for="city">City</label>
-        <input type="text" class="form-control" id="city">
-      </div>
-      <div class="form-group">
-        <label for="teleN">Telefon number</label>
-        <input type="text" class="form-control" id="teleN">
-      </div>
-    </form>
-    <!----------------------------------------->
-
-    <!----------- Payment method -------------->
-    <form>
-      <div class="form-group">
-        <label for="pOption">Payment method</label>
-        <select class="form-control" id="pOption">
-          <option>Swish</option>
-          <option>Card</option>
-          <option>Paypal</option>
-          <option>Invoice</option>
-        </select>
-        <br>
-      </div>
-    </form>              
-    <!----------------------------------------->
-      
+    
+    <link rel="stylesheet" href="/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/esri-leaflet-geocoder/esri-leaflet-geocoder.css">
+    <link rel="stylesheet" href="css/shared.css">
+    <script src="/vue/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/leaflet/leaflet.js"></script>
+    <script src="/esri-leaflet/esri-leaflet.js"></script>
+    <script src="/esri-leaflet-geocoder/esri-leaflet-geocoder.js"></script>
+    <script src="js/customer.js" defer></script>
+  </head>
+  <body>
 
 
-    <!---------- Given code -------------->
-    <a href="/" target="_blank">Open another customer view</a> |
-    <a href="/dispatcher" target="_blank">Open dispatcher view</a> |
-    <a href="/driver" target="_blank">Open driver view</a>
-    <h1>
-      DELIVERY CUSTOMER
-    </h1>
-    <p>Select pickup location first, then your parcel's destination</p>
-    <div id="page">
-      <div id="my-map"></div><br>
-      <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express">Check this box for express delivery!</input><br><br>
-      <button v-on:click="placeOrder">ORDER DELIVERY</button>
-      Your order number is {{ orderId }}
-    </div>
-    <!------------------------------------->
+    <div class="container">
+      <div id="page">
+        <!--------- Personal information ---------->
+        <h3>Personal information</h3>
+        <form>
+          <div class="form-group">
+            <label for="name">First and sirname</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+          <div class="form-group">
+            <label for="adress">Houseadress</label>
+            <input type="text" class="form-control" id="adress">
+          </div>
+          <div class="form-group">
+            <label for="postC">Postal code</label>
+            <input type="text" class="form-control" id="postC">
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city">
+          </div>
+          <div class="form-group">
+            <label for="teleN">Telefon number</label>
+            <input type="text" class="form-control" id="teleN">
+          </div>
+        </form>
+        <!----------------------------------------->
 
-  </div> <!-- End of container -->
+        <!----------- Payment method -------------->
+        <form>
+          <div class="form-group">
+            <label for="pOption">Payment method</label>
+            <select class="form-control" id="pOption">
+              <option>Swish</option>
+              <option>Card</option>
+              <option>Paypal</option>
+              <option>Invoice</option>
+            </select>
+            <br>
+          </div>
+        </form>              
+        <!----------------------------------------->
+        
 
-  <!-- Bootstrap links -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</body>
+
+        <!---------- Given code -------------->
+        <a href="/" target="_blank">Open another customer view</a> |
+        <a href="/dispatcher" target="_blank">Open dispatcher view</a> |
+        <a href="/driver" target="_blank">Open driver view</a>
+        <h1>
+          DELIVERY CUSTOMER
+        </h1>
+        <p>Select pickup location first, then your parcel's destination</p>
+
+        <div id="my-map"></div><br>
+        <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express">Check this box for express delivery!</input><br><br>
+        <button v-on:click="placeOrder">ORDER DELIVERY</button>
+        Your order number is {{ orderId }}
+
+        <!------------------------------------->
+        
+      </div> <!-- End of #page -->
+    </div> <!-- End of container -->
+
+    <!-- Bootstrap links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
 </html>

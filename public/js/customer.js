@@ -107,7 +107,7 @@ var vm = new Vue({
                                 */
       //Add cost for express
       if((document.getElementsByName("express")[0]).checked) {
-        this.totalCost = 198; 
+        this.totalCost = 198;
         console.log(this.totalCost);
       }
     }

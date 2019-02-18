@@ -19,7 +19,20 @@
   <script src="js/customer.js" defer></script>
 </head>
 <body>
-
+  
+  <a href="/" target="_blank">Open another customer view</a> |
+  <a href="/dispatcher" target="_blank">Open dispatcher view</a> |
+  <a href="/driver" target="_blank">Open driver view</a>
+  <h1>
+    DELIVERY CUSTOMER
+  </h1>
+  <p>Select pickup location first, then your parcel's destination</p>
+  <div id="page">
+    <div id="my-map"></div><br>
+    <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express"> Check this box for express delivery! +99kr</input><br><br>
+    <button v-on:click="placeOrder">ORDER DELIVERY</button>
+    Your order number is {{ orderId }}
+  </div>
 
   <div class="container">
     <h3>Personal information</h3>
@@ -45,27 +58,6 @@
         <input type="text" class="form-control" id="teleN">
       </div>
     </form>
-
-
-
-
-
-
-
-    
-    <a href="/" target="_blank">Open another customer view</a> |
-    <a href="/dispatcher" target="_blank">Open dispatcher view</a> |
-    <a href="/driver" target="_blank">Open driver view</a>
-    <h1>
-      DELIVERY CUSTOMER
-    </h1>
-    <p>Select pickup location first, then your parcel's destination</p>
-    <div id="page">
-      <div id="my-map"></div><br>
-      <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express">Check this box for express delivery!</input><br><br>
-      <button v-on:click="placeOrder">ORDER DELIVERY</button>
-      Your order number is {{ orderId }}
-    </div>
 
   </div> <!-- End of container -->
 

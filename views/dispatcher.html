@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    
+
     <link rel="stylesheet" href="/leaflet/leaflet.css">
     <link rel="stylesheet" href="css/shared.css">
     <script src="/vue/vue.js"></script>
@@ -20,10 +20,11 @@
     <div class="container">
       <div id="page">
 
-        
-        <!---------- Table with orders -------------->
-        
-        <h3>Current Orders</h3>
+
+
+
+        <!---------- Table with orders "Hämtning"-------------->
+        <h3>Current Orders to pick up</h3>
         <table class="table table-hover table-bordered">
           <thead>
             <tr>
@@ -31,22 +32,62 @@
               <th>Order ID</th>
               <th>Pick up location</th>
               <th>Drop of location</th>
+              <th> Type of order </th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="order in orders">
+              <td><input type="checkbox" name="toPickUp" :id="order.orderId"></td>
               <td># {{order.orderId}}</td>
               <td>{{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
+              <td>{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
+              <td> {{ order.expressOrAlreadyProcessed ? "EXPRESS" : "Standard" }} </td>
+            </tr>
+          </tbody>
+        </table>
+        <!------------------------------------>
+
+
+
+
+
+        <!-- Table with orders "Avlämning" -->
+        <h3>Current Orders to drop of</h3>
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>Check to send</th>
+              <th>Order ID</th>
+              <th>Drop of location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="order in orders">
+              <td><input type="checkbox" name="toSend" :id="order.orderId"></td>
+              <td># {{order.orderId}}</td>
               <td>{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
             </tr>
           </tbody>
         </table>
         <!------------------------------------>
 
-        
+
+
+
+        <!-- Pulldown menu for deligation ---->
+
+
+
+
+
+        <!------------------------------------>
+
+
+
+
         <!---------- Given code -------------->
-        <a href="/" target="_blank">Open customer view</a> | 
-        <a href="/dispatcher" target="_blank">Open another dispatcher view</a> | 
+        <a href="/" target="_blank">Open customer view</a> |
+        <a href="/dispatcher" target="_blank">Open another dispatcher view</a> |
         <a href="/driver" target="_blank">Open driver view</a>
         <h1>DELIVERY DISPATCHER</h1>
 

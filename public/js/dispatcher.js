@@ -85,7 +85,6 @@ var vm = new Vue({
       iconSize: [40,40],
       iconAnchor: [20,20]
     });
-       
   },
   mounted: function () {
     // set up the map

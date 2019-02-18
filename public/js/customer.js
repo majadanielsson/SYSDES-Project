@@ -110,6 +110,9 @@ var vm = new Vue({
         this.totalCost = 198;
         console.log(this.totalCost);
       }
+      else {
+        this.totalCost = 99;
+      }
     }
   }
 });

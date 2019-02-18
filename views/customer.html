@@ -23,55 +23,60 @@
     <div class="container">
       <div id="page">
 
-        <!--------- Personal information ---------->
-        <h3>Personal information</h3>
-        <form>
-          <div class="form-group">
-            <label for="name">First- and surname</label>
-            <input type="text" class="form-control" id="name">
-          </div>
-          <div class="form-group">
-            <label for="adress">House adress</label>
-            <input type="text" class="form-control" id="adress">
-          </div>
-          <div class="form-group">
-            <label for="postC">Postal code</label>
-            <input type="text" class="form-control" id="postC">
-          </div>
-          <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" class="form-control" id="city">
-          </div>
-          <div class="form-group">
-            <label for="teleN">Phone number</label>
-            <input type="text" class="form-control" id="teleN">
-          </div>
-        </form>
-        <!----------------------------------------->
-
-        <!----------- Payment method -------------->
-        <form>
-          <div class="form-group">
-            <label for="pOption">Payment method</label>
-            <select class="form-control" id="pOption">
-              <option>Swish</option>
-              <option>Card</option>
-              <option>Paypal</option>
-              <option>Invoice</option>
-            </select>
-            <br>
-          </div>
-        </form>
-        <!----------------------------------------->
         <!---------- Given code -------------->
-        <a href="/" target="_blank">Open another customer view</a> |
-        <a href="/dispatcher" target="_blank">Open dispatcher view</a> |
-        <a href="/driver" target="_blank">Open driver view</a>
+
         <h1>DELIVERY CUSTOMER</h1>
         <p>Select pickup location first, then your parcel's destination</p>
 
         <div id="my-map"></div><br>
-        <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express"> Check this box for express delivery!</input><br><br>
+        <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express"> Check this box for express delivery! +99kr</input><br><br>
+
+        <!--------- Personal information ---------->
+        <div id="personalInfo">
+          <h3>Personal information</h3>
+          <form>
+            <div class="form-group">
+              <label for="name">First- and surname</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="adress">House adress</label>
+              <input type="text" class="form-control" id="adress">
+            </div>
+            <div class="form-group">
+              <label for="postC">Postal code</label>
+              <input type="text" class="form-control" id="postC">
+            </div>
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" class="form-control" id="city">
+            </div>
+            <div class="form-group">
+              <label for="teleN">Phone number</label>
+              <input type="text" class="form-control" id="teleN">
+            </div>
+          </form>
+        </div>
+        <!----------------------------------------->
+
+        <div id="payment">
+          <p>To pay: {{totalCost}} kr</p>
+          <!----------- Payment method -------------->
+          <form>
+            <div class="form-group">
+              <label for="pOption">Payment method</label>
+              <select class="form-control" id="pOption">
+                <option>Swish</option>
+                <option>Card</option>
+                <option>Paypal</option>
+                <option>Invoice</option>
+              </select>
+              <br>
+            </div>
+          </form>
+        </div>
+        <!----------------------------------------->
+
         <button v-on:click="placeOrder">ORDER DELIVERY</button>
         Your order number is {{ orderId }}
 

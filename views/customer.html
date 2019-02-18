@@ -28,7 +28,7 @@
   <p>Select pickup location first, then your parcel's destination</p>
   <div id="page">
     <div id="my-map"></div><br>
-    <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express">Check this box for express delivery!</input><br><br>
+    <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express">Check this box for express delivery! +99kr</input><br><br>
     <button v-on:click="placeOrder">ORDER DELIVERY</button>
     Your order number is {{ orderId }}
   </div>

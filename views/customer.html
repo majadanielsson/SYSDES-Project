@@ -8,6 +8,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/cssBootstrap/bootstrap.css">
 
+  <link rel="stylesheet" type="text/css" href="css/customer.css">
   <link rel="stylesheet" href="/leaflet/leaflet.css">
   <link rel="stylesheet" href="/esri-leaflet-geocoder/esri-leaflet-geocoder.css">
   <link rel="stylesheet" href="css/shared.css">
@@ -29,6 +30,15 @@
   <div id="page">
     <div id="my-map"></div><br>
     <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express">Check this box for express delivery!</input><br><br>
+    <label for="pay">Payment method</label><br>
+                <select v-model="paymentMethod" id="pay" name="payment">
+                  <option>Swish</option>
+                  <option>Klarna</option>
+                  <option>Credit card</option>
+                </select>
+    </br>
+
+
     <button v-on:click="placeOrder">ORDER DELIVERY</button>
     Your order number is {{ orderId }}
   </div>

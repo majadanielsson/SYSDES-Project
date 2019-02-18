@@ -69,7 +69,7 @@ var vm = new Vue({
   methods: {
     getDriverInfo: function () {
       return  { driverId: this.driverId,
-        latLong: this.driverLocation.getLatLng(), 
+        latLong: this.driverLocation.getLatLng(),
         maxCapacity: this.maxCapacity,
         usedCapacity: this.usedCapacity
       };
@@ -99,13 +99,14 @@ var vm = new Vue({
     },
     orderPickedUp: function (order) {
       // Update used capacity
+      order.orderDroppedAtHub = true;
       this.usedCapacity += order.orderDetails.spaceRequired;
-
-      // TODO: Update polyline, remove last segment  
+      // TODO: Update polyline, remove last segment
       socket.emit("orderPickedUp", order);
     },
     orderDroppedOff: function (order) {
       // Update used capacity
+      //order.orderDroppedAtHub = true;
       this.usedCapacity -= order.orderDetails.spaceRequired;
 
       Vue.delete(this.orders, order.orderId);

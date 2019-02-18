@@ -72,7 +72,8 @@ var vm = new Vue({
       socket.emit("placeOrder", { fromLatLong: [this.fromMarker.getLatLng().lat, this.fromMarker.getLatLng().lng],
         destLatLong: [this.destMarker.getLatLng().lat, this.destMarker.getLatLng().lng],
         expressOrAlreadyProcessed: this.express ? true : false,
-        orderDetails: { pieces: 1, spaceRequired: 3, totalGrams: 5600,  driverInstructions: "Beware of the dog" }
+        orderDetails: { pieces: 1, spaceRequired: 3, totalGrams: 5600,  driverInstructions: "Beware of the dog" },
+        orderDroppedAtHub: false
       });
     },
     getPolylinePoints: function() {

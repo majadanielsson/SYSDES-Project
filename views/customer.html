@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="/leaflet/leaflet.css">
   <link rel="stylesheet" href="/esri-leaflet-geocoder/esri-leaflet-geocoder.css">
   <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/customer.css">
   <script src="/vue/vue.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="/leaflet/leaflet.js"></script>
@@ -18,9 +19,18 @@
   <a href="/" target="_blank">Open another customer view</a> | 
   <a href="/dispatcher" target="_blank">Open dispatcher view</a> | 
   <a href="/driver" target="_blank">Open driver view</a>
-  <h1>
-    DELIVERY CUSTOMER 
-  </h1>
+
+  <div id="header">
+    
+    <image src="img/heart.png" id="headerIMG">
+    <h1 class="headerText">Kärleksbrev</h1>
+    <h4 class="headerText">"Det kommer när det kommer"</h4>
+       
+  </div>
+  
+  <div >
+
+
   <p>Select pickup location first, then your parcel's destination</p>
   <div id="page">
     <div id="my-map"></div><br>

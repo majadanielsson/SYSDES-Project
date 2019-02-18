@@ -14,7 +14,7 @@ var vm = new Vue({
     destMarker: null,
     baseMarker: null,
     driverMarkers: {},
-    totalCost: 0
+    totalCost: 199
   },
   created: function () {
     socket.on('initialize', function (data) {

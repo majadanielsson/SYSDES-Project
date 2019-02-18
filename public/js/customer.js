@@ -13,7 +13,8 @@ var vm = new Vue({
     fromMarker: null,
     destMarker: null,
     baseMarker: null,
-    driverMarkers: {}
+    driverMarkers: {},
+    totalCost: 199
   },
   created: function () {
     socket.on('initialize', function (data) {
@@ -92,7 +93,7 @@ var vm = new Vue({
         this.destMarker = L.marker([event.latlng.lat, event.latlng.lng], {draggable: true}).addTo(this.map);
         this.destMarker.on("drag", this.moveMarker);
         this.connectMarkers = L.polyline(this.getPolylinePoints(), {color: 'blue'}).addTo(this.map);
-      } 
+      }
       // subsequent clicks assume moved markers
       else {
         this.moveMarker();
@@ -104,6 +105,9 @@ var vm = new Vue({
                                 latLong: [event.target.getLatLng().lat, event.target.getLatLng().lng]
                                 });
                                 */
+      //Add cost
+      this.totalCost += 99;
+      console.log(this.totalCost);
     }
   }
 });

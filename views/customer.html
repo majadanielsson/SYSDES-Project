@@ -19,21 +19,55 @@
   <script src="js/customer.js" defer></script>
 </head>
 <body>
-  <a href="/" target="_blank">Open another customer view</a> |
-  <a href="/dispatcher" target="_blank">Open dispatcher view</a> |
-  <a href="/driver" target="_blank">Open driver view</a>
-  <h1>
-    DELIVERY CUSTOMER
-  </h1>
-  <p>Select pickup location first, then your parcel's destination</p>
-  <div id="page">
-    <div id="my-map"></div><br>
-    <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express">Check this box for express delivery!</input><br><br>
-    <button v-on:click="placeOrder">ORDER DELIVERY</button>
-    Your order number is {{ orderId }}
-  </div>
 
 
+  <div class="container">
+    <h3>Personal information</h3>
+    <form>
+      <div class="form-group">
+        <label for="name">First and sirname</label>
+        <input type="text" class="form-control" id="name">
+      </div>
+      <div class="form-group">
+        <label for="adress">Houseadress</label>
+        <input type="text" class="form-control" id="adress">
+      </div>
+      <div class="form-group">
+        <label for="postC">Postal code</label>
+        <input type="text" class="form-control" id="postC">
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city">
+      </div>
+      <div class="form-group">
+        <label for="teleN">Telefon number</label>
+        <input type="text" class="form-control" id="teleN">
+      </div>
+    </form>
+
+
+
+
+
+
+
+    
+    <a href="/" target="_blank">Open another customer view</a> |
+    <a href="/dispatcher" target="_blank">Open dispatcher view</a> |
+    <a href="/driver" target="_blank">Open driver view</a>
+    <h1>
+      DELIVERY CUSTOMER
+    </h1>
+    <p>Select pickup location first, then your parcel's destination</p>
+    <div id="page">
+      <div id="my-map"></div><br>
+      <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express">Check this box for express delivery!</input><br><br>
+      <button v-on:click="placeOrder">ORDER DELIVERY</button>
+      Your order number is {{ orderId }}
+    </div>
+
+  </div> <!-- End of container -->
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

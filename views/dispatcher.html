@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="/leaflet/leaflet.css">
     <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/dispatcher.css">
     <script src="/vue/vue.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/leaflet/leaflet.js"></script>
@@ -37,7 +38,7 @@
           </thead>
           <tbody>
             <tr v-for="order in orders">
-              <td><input type="checkbox" name="toPickUp" :id="order.orderId"></td>
+              <td><input type="checkbox" name="checkboxPick" :id="order.orderId"></td>
               <td># {{order.orderId}}</td>
               <td>{{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
               <td>{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
@@ -48,6 +49,29 @@
         <!------------------------------------>
 
 
+        <!-------- Dropdown for cars -------->
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pick car
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li v-for="driver in drivers">
+              <a v-on:click="changeDriver(driver.driverId);checkedOrdersFunq(orders);" ># {{ driver.driverId}} Pos: {{ driver.latLong.lat.toFixed(3) }}, {{ driver.latLong.lng.toFixed(3) }} </a>
+            </li>
+          </ul>
+        </div>
+
+        <div v-if="checkedOrders != false">
+          <div class="jumbotron" id="summary" >
+            <h4>To send</h4>
+            <div v-for="checked1 in checkedOrders">{{ checked1.orderId }}</div>
+            <h4>To driver</h4>
+            # {{ driver }} <span class="glyphicon glyphicon-sunglasses"></span>
+          </div>
+        </div>
+
+        <button v-on:click="assignBulk(orders)" type="button" class="btn btn-lg">Conf</button>
+        <!------------------------------------>
 
 
 
@@ -64,24 +88,13 @@
           <tbody>
             <tr v-for="order in orders" v-if="order.orderDroppedAtHub">
               <td><input type="checkbox" name="toSend" :id="order.orderId"></td>
+
               <td># {{order.orderId}}</td>
               <td>{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
             </tr>
           </tbody>
         </table>
         <!------------------------------------>
-
-
-
-
-        <!-- Pulldown menu for deligation ---->
-
-
-
-
-
-        <!------------------------------------>
-
 
 
 
@@ -92,6 +105,7 @@
         <h1>DELIVERY DISPATCHER</h1>
 
         <div id="my-map"></div>
+
         <h1>Orders</h1>
         <ul>
           <li v-for="order in orders">
@@ -103,7 +117,8 @@
             </ul>
             <select v-on:change="assignDriver(order)" v-model="order.driverId">
               <option disabled value="">Assign a driver</option>
-              <option v-for="driver in drivers" :value="driver.driverId"># {{ driver.driverId}} Pos: {{ driver.latLong.lat.toFixed(3) }}, {{ driver.latLong.lng.toFixed(3) }} </option>
+              <option v-for="driver in drivers" :value="driver.driverId">
+                # {{ driver.driverId}} Pos: {{ driver.latLong.lat.toFixed(3) }}, {{ driver.latLong.lng.toFixed(3) }} </option>
             </select> Assigned to driver #{{ order.driverId }}
           </li>
         </ul>

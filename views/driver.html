@@ -39,6 +39,7 @@
           </li>
         </ul>
         <button v-on:click="orderPickedUp(order)">Picked up!</button><button v-on:click="orderDroppedOff(order)">Dropped off!</button>
+        <button v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button>
       </div>
         <br>
       </div>
@@ -62,9 +63,10 @@
         </tr>
       </tbody>
     </table>
-    
+
     <!-- fix the buttonpress for multiple orders in the checklist -->
     <button v-on:click="orderPickedUp(order)">Picked up!</button><button v-on:click="orderDroppedOff(order)">Dropped off!</button>
+    <button v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button>
     <br><br>
     <button id="quit" v-on:click="quit">Quit</button>
   </div>

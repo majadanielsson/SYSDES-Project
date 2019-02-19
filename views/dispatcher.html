@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    
+
     <link rel="stylesheet" href="/leaflet/leaflet.css">
     <link rel="stylesheet" href="css/shared.css">
     <link rel="stylesheet" href="css/dispatcher.css">
@@ -22,8 +22,8 @@
       <div id="page">
 
 
-        
-        
+
+
         <!---------- Table with orders "Hämtning"-------------->
         <h3>Current Orders to pick up</h3>
         <table class="table table-hover table-bordered">
@@ -33,6 +33,7 @@
               <th>Order ID</th>
               <th>Pick up location</th>
               <th>Drop of location</th>
+              <th> Type of order </th>
             </tr>
           </thead>
           <tbody>
@@ -41,6 +42,7 @@
               <td># {{order.orderId}}</td>
               <td>{{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
               <td>{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
+              <td> {{ order.expressOrAlreadyProcessed ? "EXPRESS" : "Standard" }} </td>
             </tr>
           </tbody>
         </table>
@@ -72,7 +74,7 @@
         <!------------------------------------>
 
 
-        
+
         <!-- Table with orders "Avlämning" -->
         <h3>Current Orders to drop of</h3>
         <table class="table table-hover table-bordered">
@@ -92,18 +94,12 @@
           </tbody>
         </table>
         <!------------------------------------>
-        
-        
-        
-        
 
 
-        
 
-        
         <!---------- Given code -------------->
-        <a href="/" target="_blank">Open customer view</a> | 
-        <a href="/dispatcher" target="_blank">Open another dispatcher view</a> | 
+        <a href="/" target="_blank">Open customer view</a> |
+        <a href="/dispatcher" target="_blank">Open another dispatcher view</a> |
         <a href="/driver" target="_blank">Open driver view</a>
         <h1>DELIVERY DISPATCHER</h1>
 

@@ -82,6 +82,15 @@ var vm = new Vue({
             iconSize: [42,30],
             iconAnchor: [21,34]
         });
+    this.baseIcon = L.icon({
+      iconUrl: "img/base.png",
+      iconSize: [40,40],
+      iconAnchor: [20,20]
+    });
+  },
+  mounted: function () {
+    // set up the map
+    this.map = L.map('my-map').setView([59.8415,17.648], 13);
 
         this.baseIcon = L.icon({
             iconUrl: "img/base.png",

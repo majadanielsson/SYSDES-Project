@@ -104,6 +104,7 @@ var vm = new Vue({
     orderPickedUp: function (order) {
       // Update used capacity
       this.usedCapacity += order.orderDetails.spaceRequired;
+
       // TODO: Update polyline, remove last segment
       socket.emit("orderPickedUp", order);
     },

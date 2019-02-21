@@ -108,13 +108,12 @@ var vm = new Vue({
     },
     orderDroppedOffAtHub: function (order) {
       order.orderDroppedAtHub = true;
+      this.map.removeLayer(this.customerMarkers[order.orderId].from);
+      this.map.removeLayer(this.customerMarkers[order.orderId].dest);
+      this.map.removeLayer(this.customerMarkers[order.orderId].line);
       socket.emit("orderDroppedOffAtHub", order);
     },
     orderDroppedOff: function (order) {
-      // Update used capacity
-      //order.orderDroppedAtHub = true;
-      this.usedCapacity -= order.orderDetails.spaceRequired;
-
       Vue.delete(this.orders, order.orderId);
       this.map.removeLayer(this.customerMarkers[order.orderId].from);
       this.map.removeLayer(this.customerMarkers[order.orderId].dest);

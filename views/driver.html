@@ -20,13 +20,10 @@
 <body>
   <div class="container">
   <div id="page">
-    <a href="/" target="_blank">Open customer view</a> |
-    <a href="/dispatcher" target="_blank">Open dispatcher view</a> |
-    <a href="/driver" target="_blank">Open another driver view</a>
     <h1>
       DELIVERY DRIVER # <input type="textfield" v-model="driverId"/> (enter your ID)
+      <button v-on:click="activateDriver()">Sign in</button>
 	  </h1>
-    <p>Click in the map to position your truck and click again or drag the icon to move.</p>
     <div id="my-map"></div>
     <br><br>
     <ul id = "orderList">
@@ -38,8 +35,7 @@
             {{ key + ": " + detail }}
           </li>
         </ul>
-        <button v-on:click="orderPickedUp(order)">Picked up!</button><button v-on:click="orderDroppedOff(order)">Dropped off!</button>
-        <button v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button>
+        <button v-on:click="orderPickedUp(order)">Picked up!</button><button v-on:click="orderDroppedOff(order)">Dropped off!</button><button v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button>
       </div>
         <br>
       </div>

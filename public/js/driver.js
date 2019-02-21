@@ -61,12 +61,15 @@ var vm = new Vue({
         attribution: osmAttrib,
         maxZoom: 18
     }).addTo(this.map);
-    this.map.on('click', this.setDriverLocation);
+    //this.map.on('click', this.setDriverLocation);
   },
   beforeDestroy: function () {
     socket.emit('driverQuit', this.driverId);
   },
   methods: {
+    activateDriver: function () {
+      this.setDriverLocation(); //Should set driver icon to hub
+    },
     getDriverInfo: function () {
       return  { driverId: this.driverId,
         latLong: this.driverLocation.getLatLng(),
@@ -76,8 +79,9 @@ var vm = new Vue({
     },
     setDriverLocation: function (event) {
       if (this.driverLocation === null) {
-        this.driverLocation = L.marker([event.latlng.lat, event.latlng.lng], {icon: this.driverIcon, draggable: true}).addTo(this.map);
-        this.driverLocation.on("drag", this.moveDriver);
+        this.driverLocation = L.marker([59.841, 17.649], {icon: this.driverIcon, draggable: true}).addTo(this.map);
+        //this.driverLocation = L.marker([event.latlng.lat, event.latlng.lng], {icon: this.driverIcon, draggable: true}).addTo(this.map);
+        //this.driverLocation.on("drag", this.moveDriver);
         socket.emit("addDriver", this.getDriverInfo());
       }
       else {

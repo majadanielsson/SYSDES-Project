@@ -38,7 +38,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="order in orders">
+          <tr v-for="order in orders" v-if="!order.orderDroppedAtHub">
             <!--<td><input type="checkbox" name="markedOrders" :id="order.orderId"></td>-->
             <td># {{order.orderId}}</td>
             <td>{{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>

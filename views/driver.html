@@ -24,6 +24,7 @@
       Please enter your driver ID <input type="textfield" v-model="driverId" size="4"/>
       <button v-on:click="activateDriver()">Sign in</button>
 	  </h1>
+    <div v-if="active">
       <br><br>
       <h3>Current orderlist</h3>
       <table class="table table-hover table-bordered">
@@ -51,6 +52,7 @@
       <!--<button v-on:click="orderPickedUp()">Picked up!</button><button v-on:click="orderDroppedOff()">Dropped off!</button><button v-on:click="orderDroppedOffAtHub()">Dropped off at hub!</button>-->
       <br><br>
       <button id="quit" v-on:click="quit">Sign out</button>
+    </div>
     <div id="my-map"></div>
   </div> <!-- End of container -->
 </div>

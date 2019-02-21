@@ -73,7 +73,8 @@ var vm = new Vue({
         destLatLong: [this.destMarker.getLatLng().lat, this.destMarker.getLatLng().lng],
         expressOrAlreadyProcessed: this.express ? true : false,
         orderDetails: { pieces: 1, spaceRequired: 3, totalGrams: 5600,  driverInstructions: "Beware of the dog" },
-        orderDroppedAtHub: false
+        orderDroppedAtHub: false,
+        orderPickedUp: false
       });
     },
     getPolylinePoints: function() {

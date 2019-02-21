@@ -11,8 +11,6 @@ var vm = new Vue({
     map: null,
     driverId: 1,
     driverLocation: null,
-    maxCapacity: 30,
-    usedCapacity: 0,
     orders: {},
     customerMarkers: {},
     baseMarker: null
@@ -104,9 +102,7 @@ var vm = new Vue({
       socket.emit("driverQuit", this.driverId);
     },
     orderPickedUp: function (order) {
-      // Update used capacity
-      this.usedCapacity += order.orderDetails.spaceRequired;
-
+      order.orderPickedUp = true;
       // TODO: Update polyline, remove last segment
       socket.emit("orderPickedUp", order);
     },

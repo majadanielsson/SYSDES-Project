@@ -4,7 +4,8 @@
 body {
   font-family: 'Fjalla One', sans-serif;
   font-size: 12pt;
-  background: lightGreen;
+  background: white;
+  margin: 2em 2em;
 }
 
 #order {
@@ -13,4 +14,23 @@ body {
 
 #orderList {
   margin-left: 100;
+}
+
+button {
+  	box-shadow: 0px 5px 5px rgba(0, 0, 0.3, 0.3);
+}
+
+#quit:hover {
+  background-color: #ff3232;
+}
+
+button:hover {
+     background-color: lightGreen;
+     cursor: pointer;
+}
+#my-map {
+  width: 30%;
+	height: 30vh;
+  margin-right: 5px;
+  margin-top: 100px;
 }

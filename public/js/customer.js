@@ -14,7 +14,7 @@ var vm = new Vue({
     destMarker: null,
     baseMarker: null,
     driverMarkers: {},
-    totalCost: 199
+    totalCost: 99
   },
   created: function () {
     socket.on('initialize', function (data) {
@@ -72,7 +72,9 @@ var vm = new Vue({
       socket.emit("placeOrder", { fromLatLong: [this.fromMarker.getLatLng().lat, this.fromMarker.getLatLng().lng],
         destLatLong: [this.destMarker.getLatLng().lat, this.destMarker.getLatLng().lng],
         expressOrAlreadyProcessed: this.express ? true : false,
-        orderDetails: { pieces: 1, spaceRequired: 3, totalGrams: 5600,  driverInstructions: "Beware of the dog" }
+        orderDetails: { pieces: 1, spaceRequired: 3, totalGrams: 5600,  driverInstructions: "Beware of the dog" },
+        orderDroppedAtHub: false,
+        orderPickedUp: false
       });
     },
     getPolylinePoints: function() {
@@ -105,9 +107,14 @@ var vm = new Vue({
                                 latLong: [event.target.getLatLng().lat, event.target.getLatLng().lng]
                                 });
                                 */
-      //Add cost
-      this.totalCost += 99;
-      console.log(this.totalCost);
+      //Add cost for express
+      if((document.getElementsByName("express")[0]).checked) {
+        this.totalCost = 198;
+        console.log(this.totalCost);
+      }
+      else {
+        this.totalCost = 99;
+      }
     }
   }
 });

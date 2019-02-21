@@ -27,3 +27,9 @@ button:hover {
      background-color: lightGreen;
      cursor: pointer;
 }
+#my-map {
+  width: 30%;
+	height: 30vh;
+  margin-right: 5px;
+  margin-top: 100px;
+}

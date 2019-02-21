@@ -26,8 +26,9 @@
     <h1>
       DELIVERY DRIVER # <input type="textfield" v-model="driverId"/> (enter your ID)
 	  </h1>
-    <p>Click in the map to position your truck and click again or drag the icon to move.</p>
-    <div id="my-map"></div>
+    <div id = "logga in">
+    <button v-on:click="driverLogin()">Sätt på GPS i bilen!</button>
+    </div>
     <br><br>
     <ul id = "orderList">
       <div v-for="order in orders" v-if="order.driverId == driverId">
@@ -62,12 +63,13 @@
         </tr>
       </tbody>
     </table>
-    
+
     <!-- fix the buttonpress for multiple orders in the checklist -->
     <button v-on:click="orderPickedUp(order)">Picked up!</button><button v-on:click="orderDroppedOff(order)">Dropped off!</button>
     <br><br>
     <button id="quit" v-on:click="quit">Quit</button>
   </div>
+  <div id="my-map"></div>
   </div> <!-- End of container -->
 
 

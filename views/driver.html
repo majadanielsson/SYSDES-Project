@@ -24,36 +24,36 @@
       DELIVERY DRIVER # <input type="textfield" v-model="driverId"/> (enter your ID)
       <button v-on:click="activateDriver()">Sign in</button>
 	  </h1>
+    <div id="activeDriverInfo" v-if="active">
+      <br><br>
+      <h3>Current orderlist</h3>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Select order</th>
+            <th>Order ID</th>
+            <th>Pick up location</th>
+            <th>Drop of location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="order in orders">
+            <td><input type="checkbox" name="toPickUp" :id="order.orderId"></td>
+            <td># {{order.orderId}}</td>
+            <td>{{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
+            <td>{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <br><br>
-    <h3>Current orderlist</h3>
-    <table class="table table-hover table-bordered">
-      <thead>
-        <tr>
-          <th>Select order</th>
-          <th>Order ID</th>
-          <th>Pick up location</th>
-          <th>Drop of location</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="order in orders">
-          <td><input type="checkbox" name="toPickUp" :id="order.orderId"></td>
-          <td># {{order.orderId}}</td>
-          <td>{{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
-          <td>{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <!-- fix the buttonpress for multiple orders in the checklist -->
-    <button v-on:click="orderPickedUp(order)">Picked up!</button><button v-on:click="orderDroppedOff(order)">Dropped off!</button><button v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button>
-    <br><br>
-    <button id="quit" v-on:click="quit">Quit</button>
-  </div>
-  <div id="my-map"></div>
+      <!-- fix the buttonpress for multiple orders in the checklist -->
+      <button v-on:click="orderPickedUp(order)">Picked up!</button><button v-on:click="orderDroppedOff(order)">Dropped off!</button><button v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button>
+      <br><br>
+      <button id="quit" v-on:click="quit">Quit</button>
+    </div>
+    <div id="my-map"></div>
   </div> <!-- End of container -->
-
+</div>
 
 
   <!-- Bootstrap links -->

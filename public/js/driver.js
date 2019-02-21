@@ -7,6 +7,7 @@ var socket = io();
 var vm = new Vue({
   el: '#page',
   data: {
+    active: false,
     map: null,
     driverId: 1,
     driverLocation: null,
@@ -68,7 +69,8 @@ var vm = new Vue({
   },
   methods: {
     activateDriver: function () {
-      this.setDriverLocation(); //Should set driver icon to hub
+      this.active = true;
+      this.setDriverLocation();
     },
     getDriverInfo: function () {
       return  { driverId: this.driverId,

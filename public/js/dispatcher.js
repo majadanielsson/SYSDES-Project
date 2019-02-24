@@ -61,6 +61,11 @@ var vm = new Vue({
         socket.on('orderPickedUp', function (order) {
             this.$set(this.orders, order.orderId, order);
         }.bind(this));
+        //MAJAS ADDITION
+        socket.on('orderDroppedOffAtHub', function (order) {
+            this.$set(this.orders, order.orderId, order);
+        }.bind(this));
+        
         socket.on('orderDroppedOff', function (orderId) {
             Vue.delete(this.orders, orderId);
             this.map.removeLayer(this.customerMarkers[orderId].from);
@@ -97,7 +102,7 @@ var vm = new Vue({
             iconSize: [40,40],
             iconAnchor: [20,20]
         });
-        
+
     },
     mounted: function () {
         // set up the map
@@ -168,19 +173,19 @@ var vm = new Vue({
                 this.assignDriver(array[i]);
             }
         },
-        changeDriver: function (newDriver) {   
+        changeDriver: function (newDriver) {
             this.driver = newDriver;
         },
         checkedOrdersFunq: function (orders) {
             this.checkedOrders = chOrders(orders);
         }
 
-        
+
     }
 });
 
 
-function chOrders(orders) {   
+function chOrders(orders) {
     var array = document.getElementsByName("checkboxPick");
     var isChecked = [];
     for (var i=0; i<array.length; i++) {
@@ -199,12 +204,11 @@ function chOrders(orders) {
         for (var j=0; j<isChecked.length; j++) {
             if (order == isChecked[j]) {
                 console.log(order+ " == " +isChecked[j]);
-                
+
                 console.log(orders[order]);
                 result.push(orders[order]);
             }
         }
     }
-    return result;    
+    return result;
 }
-

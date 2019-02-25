@@ -15,12 +15,12 @@ body {
 
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
-.bg-1 { 
+.bg-1 {
     background-color: #1abc9c; /* Green */
     color: #ffffff;
 }
 
-.bg-2 { 
+.bg-2 {
     background-color: #474e5d; /* Dark Blue */
     color: #ffffff;
         display: none;
@@ -33,7 +33,7 @@ p {font-size: 16px;}
     display: none;
 }
 #mapText {
-    
+
 }
 .container-fluid {
     padding-top: 70px;
@@ -73,7 +73,7 @@ button {
 
 #signInB:hover {
     background-color: #1abc9c;
-    
+
 }
 
 button:hover {
@@ -89,6 +89,6 @@ button:hover {
 	  box-shadow: 0px;
 }
 
-
-
-
+#orderTable:hover {
+  background-color: #1abc9c;
+}

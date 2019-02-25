@@ -1,67 +1,129 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DELIVERY DRIVER</title>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/cssBootstrap/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DELIVERY DRIVER</title>
 
-  <link rel="stylesheet" href="/leaflet/leaflet.css">
-  <link rel="stylesheet" href="css/shared.css">
-  <link rel="stylesheet" href="css/driver.css">
-  <script src="/vue/vue.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/leaflet/leaflet.js"></script>
-  <script src="js/driver.js" defer></script>
-</head>
-<body>
-  <div class="container">
-  <div id="page">
-    <h1>
-      Please enter your driver ID <input type="textfield" v-model="driverId" size="4"/>
-      <button v-on:click="activateDriver()">Sign in</button>
-	  </h1>
-    <div v-if="active">
-      <br><br>
-      <h3>Current orderlist</h3>
-      <table class="table table-hover table-bordered">
-        <thead>
-          <tr>
-            <!--<th>Select order</th>-->
-            <th>Order ID</th>
-            <th>Pick up location</th>
-            <th>Drop off location</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="order in orders" v-if="!order.orderDroppedAtHub">
-            <!--<td><input type="checkbox" name="markedOrders" :id="order.orderId"></td>-->
-            <td># {{order.orderId}}</td>
-            <td>{{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
-            <td v-if="order.expressOrAlreadyProcessed">{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
-            <td v-else>HUB</td>
-            <td><button v-on:click="orderPickedUp(order)">Picked up!</button><button v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button><button v-on:click="orderDroppedOff(order)">Delivered to customer!</button></td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-      <!-- fix the buttonpress for multiple orders in the checklist -->
-      <!--<button v-on:click="orderPickedUp()">Picked up!</button><button v-on:click="orderDroppedOff()">Dropped off!</button><button v-on:click="orderDroppedOffAtHub()">Dropped off at hub!</button>-->
-      <br><br>
-      <button id="quit" v-on:click="quit">Sign out</button>
-    </div>
-    <div id="my-map"></div>
-  </div> <!-- End of container -->
-</div>
+    <link rel="stylesheet" href="/leaflet/leaflet.css">
+    <link rel="stylesheet" href="css/shared.css">
+    <link rel="stylesheet" href="css/driver.css">
+    <script src="/vue/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/leaflet/leaflet.js"></script>
+    <script src="js/driver.js" defer></script>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">SysDes projekt prototype Driver</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/" target="_blank">Customer</a></li>
+            <li><a href="/dispatcher" target="_blank">Dispatcher</a></li>
+            <li><a href="/driver" target="_blank">Driver</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
 
-  <!-- Bootstrap links -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="js/jsBootstrap/bootstrap.min.js"></script>
-</body>
+    <div id="page">
+
+
+      <!-- First Container -->
+      <div class="container-fluid bg-1 text-center" id="logIn">
+
+        <br><br><br><br><br>
+        <h1>Please enter your driver ID</h1>
+        <div class="col-md-4 col-md-offset-4">
+          <input type="textfield" class="form-control " v-model="driverId" size="4"/>
+          </br>
+          <button class="btn btn-primary btn-lg col-md-6 col-md-offset-3 " id="signInB" v-on:click="activateDriver" onclick="signIn()">Sign in</button>
+        </div>
+      </div><!-- First Container -->
+
+
+      <!-- Second Container -->
+      <div class="container-fluid bg-2 text-center">
+
+        <div  id="mainPage">
+        <button class="col-md-2 col-md-offset-10 btn btn-primary btn-lg" id="quit" v-on:click="quit" onclick="logOut()">Sign out</button>
+
+
+        <div v-if="active">
+
+
+          <br><br>
+          <h3>Current orderlist</h3>
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr>
+                <!--<th>Select order</th>-->
+                <th>Order ID</th>
+                <th>Pick up location</th>
+                <th>Drop off location</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="order in orders" v-if="!order.orderDroppedAtHub">
+                <!--<td><input type="checkbox" name="markedOrders" :id="order.orderId"></td>-->
+                <td># {{order.orderId}}</td>
+                <td v-if = "!order.orderDroppedAtHub2"> {{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
+                <td v-else>HUB</td>
+                <td v-if="order.expressOrAlreadyProcessed || order.orderDroppedAtHub2">{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
+                <td v-else>HUB</td>
+                <td>
+                  <button class = "btn btn-primary" v-on:click="orderPickedUp(order)">Picked up!</button>
+                  <button class = "btn btn-primary" v-if="!order.expressOrAlreadyProcessed" v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button>
+                  <button class = "btn btn-primary" v-on:click="orderDroppedOff(order)">Delivered to customer!</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <!-- fix the buttonpress for multiple orders in the checklist -->
+          <!--<button v-on:click="orderPickedUp()">Picked up!</button><button v-on:click="orderDroppedOff()">Dropped off!</button><button v-on:click="orderDroppedOffAtHub()">Dropped off at hub!</button>-->
+
+        </div>
+        </div>
+
+      </div><!-- Second Container -->
+
+
+
+      <div id="mapC">
+        <span class="col-md-3 col-md-offset-5" id="mapText">Dubbleclick on the map for a bigger picture <span class="glyphicon glyphicon-circle-arrow-right"></span></span>
+        <div id="my-map" ondblclick="showMap()"></div>
+      </div>
+
+
+
+
+
+    </div><!-- End of #page -->
+
+
+
+    <!-- Bootstrap links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
 </html>

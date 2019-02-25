@@ -91,15 +91,15 @@ var vm = new Vue({
             iconSize: [42,30],
             iconAnchor: [21,34]
         });
-    this.baseIcon = L.icon({
-      iconUrl: "img/base.png",
-      iconSize: [40,40],
-      iconAnchor: [20,20]
-    });
-  },
-  mounted: function () {
-    // set up the map
-    this.map = L.map('my-map').setView([59.8415,17.648], 13);
+        this.baseIcon = L.icon({
+            iconUrl: "img/base.png",
+            iconSize: [40,40],
+            iconAnchor: [20,20]
+        });
+    },
+    mounted: function () {
+        // set up the map
+        this.map = L.map('my-map').setView([59.8415,17.648], 13);
 
         this.baseIcon = L.icon({
             iconUrl: "img/base.png",
@@ -183,6 +183,8 @@ var vm = new Vue({
             this.summaryDisplayedDo = false;
             var array = chOrdersDo(orders);
             for (var i=0; i<array.length; i++) {
+                array[i].orderLeftHub = true;
+                array[i].orderDroppedAtHub = false;
                 console.log("assign driver in bulk " + i);
                 console.log("driver id: " + this.driver);
                 console.log("add the following order to the driver");
@@ -223,8 +225,6 @@ function chOrdersPu(orders) {
         }
     }
 
-    console.log(orders[1001].orderId);
-    console.log(orders[1001]);
     var result = [];
     for (var order in orders) {
         console.log(order);

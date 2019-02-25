@@ -24,3 +24,34 @@ body {
 #ordAss {
     background: #1abc9c;
 }
+
+#buttons {
+  background: #474e5d;
+}
+
+.margin {margin-bottom: 45px;}
+.bg-1 {
+    background-color: #11B29C; /* Green */
+    color: #ffffff;
+}
+.bg-2 {
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+    display: none;
+}
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #ff814c !important;
+}

@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
-    
+
+
     <link rel="stylesheet" href="/leaflet/leaflet.css">
     <link rel="stylesheet" href="/esri-leaflet-geocoder/esri-leaflet-geocoder.css">
     <link rel="stylesheet" href="css/shared.css">
@@ -33,7 +33,7 @@
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>                        
+            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">SysDes projekt prototype Customer</a>
         </div>
@@ -51,26 +51,26 @@
     <div class="container-fluid bg-1 text-center">
       <h3 class="margin">De hå elle</h3>
       <img src="https://i.pinimg.com/originals/c8/83/b0/c883b0a57469ef53b3f6f39e091edb56.gif" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-      <h3>It comes when in comes</h3>
+      <h3>It comes when it comes</h3>
 
       <a href="#2Container" class="btn btn-default btn-lg">
         <span class="glyphicon glyphicon-map-marker"></span> Order here
       </a>
     </div>
 
-    
+
     <div id="page"> <!--#page -->
 
-      
+
       <!-- Second Container -->
       <div class="container-fluid bg-2 text-center"  id="2Container">
         <h2 class="margin"> We're picking up and delivering parcels from all over the world</h2>
         <p>Click on the map to specify where you want us to pick up and deliver your parcel</p>
 
         <div id="my-map"></div><br>
-        
+
         In a hurry? Order Express delivery: <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express"></input><br><br>
-        
+
         <a v-on:click="checkInput" href="#3Container" class="btn btn-default btn-lg">
           <span class="	glyphicon glyphicon-ok"></span> Satisfied? Continue here!
         </a>
@@ -139,28 +139,28 @@
           </div>
 
 
-          
+
           <a href="#4Container" class="btn btn-primary" v-on:click="placeOrder" data-toggle="collapse" data-target="#4Container">
             ORDER DELIVERY
           </a>
-          <!----------------------------------------->      
+          <!----------------------------------------->
 
         </div>
       </div>
-        
 
-        
+
+
         <!-- Fourth Container (Grid) -->
-        <div class="container-fluid bg-4 text-center collapse" id="4Container">    
+        <div class="container-fluid bg-4 text-center collapse" id="4Container">
             <img src="https://i.pinimg.com/originals/98/64/9a/98649add72e05e3cc1b8ae0e6f553c8e.gif" class="img-responsive img-circle margin" style="display:inline" width="200" height="200">
-            <h3>Your order number is {{ orderId }}</h3>
+            <h3>Thank you for your order! <br> Your order number is {{ orderId }}. Please keep this for future inquiries regarding your order.</h3>
         </div>
 
       </div> <!-- End of #page -->
-   
+
     <!-- Footer -->
     <footer class="container-fluid bg-5 text-center">
-      <p>Prototype made by:<br>Martin Dannelind<br>Sofia Johansson<br>Maja Danielsson<br>Erik Hellström<br>Oscar Englöf</p> 
+      <p>Prototype made by:<br>Martin Dannelind<br>Sofia Johansson<br>Maja Danielsson<br>Erik Hellström<br>Oscar Englöf</p>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

@@ -91,15 +91,15 @@ var vm = new Vue({
             iconSize: [42,30],
             iconAnchor: [21,34]
         });
-    this.baseIcon = L.icon({
-      iconUrl: "img/base.png",
-      iconSize: [40,40],
-      iconAnchor: [20,20]
-    });
-  },
-  mounted: function () {
-    // set up the map
-    this.map = L.map('my-map').setView([59.8415,17.648], 13);
+        this.baseIcon = L.icon({
+            iconUrl: "img/base.png",
+            iconSize: [40,40],
+            iconAnchor: [20,20]
+        });
+    },
+    mounted: function () {
+        // set up the map
+        this.map = L.map('my-map').setView([59.8415,17.648], 13);
 
         this.baseIcon = L.icon({
             iconUrl: "img/base.png",
@@ -225,8 +225,6 @@ function chOrdersPu(orders) {
         }
     }
 
-    console.log(orders[1001].orderId);
-    console.log(orders[1001]);
     var result = [];
     for (var order in orders) {
         console.log(order);

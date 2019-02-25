@@ -13,9 +13,12 @@ var vm = new Vue({
         driverMarkers: {},
         baseMarker: null,
 
-        checkedOrders: false,
+        checkedForPickUp: false,
+        checkedForDropOff: false,
         driver: 0,
-        driverPicked: false
+        driverPicked: false,
+        summaryDisplayedPu: false,
+        summaryDisplayedDo: false
     },
 
     created: function () {
@@ -163,8 +166,9 @@ var vm = new Vue({
             console.log("ordersToPickUp");
             this.toPickUp = pickUp();
         },
-        assignBulk: function (orders) {
-            var array = chOrders(orders);
+        assignBulkPu: function (orders) {
+            this.summaryDisplayedPu = false;
+            var array = chOrdersPu(orders);
             for (var i=0; i<array.length; i++) {
                 console.log("assign driver in bulk " + i);
                 console.log("driver id: " + this.driver);
@@ -172,23 +176,73 @@ var vm = new Vue({
                 console.log(array[i]);
                 array[i].driverId = this.driver;
                 this.assignDriver(array[i]);
+                array[i].orderAssigned = true;
             }
         },
-        changeDriver: function (newDriver) {
+        assignBulkDo: function (orders) {
+            this.summaryDisplayedDo = false;
+            var array = chOrdersDo(orders);
+            for (var i=0; i<array.length; i++) {
+                console.log("assign driver in bulk " + i);
+                console.log("driver id: " + this.driver);
+                console.log("add the following order to the driver");
+                console.log(array[i]);
+                array[i].driverId = this.driver;
+                this.assignDriver(array[i]);
+                array[i].orderAssigned = true;
+            }
+        },
+        changeDriverPu: function (newDriver) {
+            this.summaryDisplayedPu = true;
             this.driverPicked = true;
             this.driver = newDriver;
         },
-        checkedOrdersFunq: function (orders) {
-            this.checkedOrders = chOrders(orders);
+        changeDriverDo: function (newDriver) {
+            this.summaryDisplayedDo = true;
+            this.driverPicked = true;
+            this.driver = newDriver;
+        },
+        checkedOrdersFunqPu: function (orders) {
+            this.checkedForPickUp = chOrdersPu(orders);
+        },
+        checkedOrdersFunqDo: function (orders) {
+            this.checkedForDropOff = chOrdersDo(orders);
         }
-
 
     }
 });
 
 
-function chOrders(orders) {
+function chOrdersPu(orders) {
     var array = document.getElementsByName("checkboxPick");
+    var isChecked = [];
+    for (var i=0; i<array.length; i++) {
+        if (array[i].checked) {
+            console.log(array[i].id);
+            isChecked.push(array[i].id);
+        }
+    }
+
+    console.log(orders[1001].orderId);
+    console.log(orders[1001]);
+    var result = [];
+    for (var order in orders) {
+        console.log(order);
+        console.log(orders[order]);
+        for (var j=0; j<isChecked.length; j++) {
+            if (order == isChecked[j]) {
+                console.log(order+ " == " +isChecked[j]);
+
+                console.log(orders[order]);
+                result.push(orders[order]);
+            }
+        }
+    }
+    return result;
+}
+
+function chOrdersDo(orders) {
+    var array = document.getElementsByName("toSend");
     var isChecked = [];
     for (var i=0; i<array.length; i++) {
         if (array[i].checked) {

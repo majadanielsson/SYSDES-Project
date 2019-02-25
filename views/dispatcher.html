@@ -60,7 +60,7 @@
 
         <!-------- Dropdown for cars -------->
         <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pick a driver
+          <button id="buttons" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pick a driver
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
@@ -77,7 +77,7 @@
             <h4><b>To driver:</b></h4>
             Driver {{ driver }} <span class="glyphicon glyphicon-sunglasses"></span>
             <p></p>
-            <button v-if="driverPicked && (checkedForPickUp != false)" v-on:click="assignBulkPu(orders)" type="button" class="btn btn-lg">Confirm</button>
+            <button id="buttons" v-if="driverPicked && (checkedForPickUp != false)" v-on:click="assignBulkPu(orders)" type="button" class="btn btn-lg">Confirm</button>
           </div>
         </div>
 
@@ -104,7 +104,7 @@
               <td># {{order.orderId}}</td>
               <td>{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
             </tr>
-            
+
             <tr id="ordAss" v-for="order in orders" v-if="order.orderDroppedAtHub && order.orderAssigned">
               <td></td>
               <td># {{order.orderId}}</td>
@@ -117,7 +117,7 @@
 
         <!-------- Dropdown for cars -------->
         <div class="dropdown">
-          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pick a driver
+          <button id="buttons" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pick a driver
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
@@ -134,7 +134,7 @@
             <h4><b>To driver:</b></h4>
             Driver {{ driver }} <span class="glyphicon glyphicon-sunglasses"></span>
             <p></p>
-            <button v-if="driverPicked && (checkedForDropOff != false)" v-on:click="assignBulkDo(orders)" type="button" class="btn btn-lg">Confirm</button>
+            <button id="buttons" v-if="driverPicked && (checkedForDropOff != false)" v-on:click="assignBulkDo(orders)" type="button" class="btn btn-lg">Confirm</button>
           </div>
         </div>
 

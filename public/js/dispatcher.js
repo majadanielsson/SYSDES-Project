@@ -183,6 +183,8 @@ var vm = new Vue({
             this.summaryDisplayedDo = false;
             var array = chOrdersDo(orders);
             for (var i=0; i<array.length; i++) {
+                array[i].orderLeftHub = true;
+                array[i].orderDroppedAtHub = false;
                 console.log("assign driver in bulk " + i);
                 console.log("driver id: " + this.driver);
                 console.log("add the following order to the driver");

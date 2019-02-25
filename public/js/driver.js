@@ -108,6 +108,7 @@ var vm = new Vue({
     },
     orderDroppedOffAtHub: function (order) {
       order.orderDroppedAtHub = true;
+      order.orderDroppedAtHub2 = true;
       this.map.removeLayer(this.customerMarkers[order.orderId].from);
       this.map.removeLayer(this.customerMarkers[order.orderId].dest);
       this.map.removeLayer(this.customerMarkers[order.orderId].line);

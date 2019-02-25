@@ -142,3 +142,18 @@ var vm = new Vue({
     },
   }
 });
+
+
+function show(id) {
+    var x = document.getElementsByClassName(id);
+    console.log(id);
+    $("#" + id).toggle();
+    return;
+}
+
+function hide(id) {
+    var x = document.getElementsByClassName(id);
+    console.log(id);
+    $("#" + id).toggle();
+    return;    
+}

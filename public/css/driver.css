@@ -10,35 +10,30 @@ body {
     font: 20px Montserrat, sans-serif;
     line-height: 1.8;
     color: #f5f6f7;
+    background-color: #1abc9c; /* Green */
 }
+
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 .bg-1 { 
     background-color: #1abc9c; /* Green */
     color: #ffffff;
-    display: block;
 }
 
 .bg-2 { 
     background-color: #474e5d; /* Dark Blue */
     color: #ffffff;
+        display: none;
 }
 #mainPage {
     display: none;
 }
 
-.bg-3 {
+#mapC {
     display: none;
-    background-color: #ffffff; /* White */
-    color: #555555;
 }
-.bg-4 { 
-    background-color: #ff814c; /* Black Gray */
-    color: #fff;
-}
-.bg-5 { 
-    background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
+#mapText {
+    
 }
 .container-fluid {
     padding-top: 70px;
@@ -76,15 +71,22 @@ button {
   background-color: #ff3232;
 }
 
+#signInB:hover {
+    background-color: #1abc9c;
+    
+}
+
 button:hover {
      background-color: lightGreen;
      cursor: pointer;
 }
+
 #my-map {
-  width: 30%;
-	height: 30vh;
-  margin-right: 5px;
-  margin-top: 100px;
+    width: 30vw;
+    height: 15vw;
+    margin: 0px 0px 0px 60vw;
+	  border: 0px;
+	  box-shadow: 0px;
 }
 
 

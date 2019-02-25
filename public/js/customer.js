@@ -14,7 +14,7 @@ var vm = new Vue({
         destMarker: null,
         baseMarker: null,
         driverMarkers: {},
-        
+
         totalCost: 99,
         warning: ""
     },
@@ -61,7 +61,7 @@ var vm = new Vue({
             this.destMarker.on("drag", this.moveMarker);
             searchFromControl.addTo(this.map);
         }.bind(this));
-      
+
         // listen for the results event and add the result to the map
         searchFromControl.on("results", function(data) {
             this.fromMarker = L.marker(data.latlng, {icon: this.fromIcon, draggable: true}).addTo(this.map);
@@ -76,7 +76,8 @@ var vm = new Vue({
         expressOrAlreadyProcessed: this.express ? true : false,
         orderDetails: { pieces: 1, spaceRequired: 3, totalGrams: 5600,  driverInstructions: "Beware of the dog" },
         orderDroppedAtHub: false,
-        orderPickedUp: false
+        orderPickedUp: false,
+        orderAssigned: false
       });
     },
     getPolylinePoints: function() {
@@ -145,7 +146,7 @@ function showPayment() {
                  "Postal code must be filled out",
                  "City must be filled out",
                   "Number must be filled out"]
-     
+
     for (var i=0; i<6; i++) {
         var x = document.forms["personalInfo"][arrayN[i]].value;
         if (x == "") {
@@ -156,5 +157,5 @@ function showPayment() {
     var x = document.getElementById("payment");
     x.style.display = "block";
     return;
-    
+
 }

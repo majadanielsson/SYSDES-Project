@@ -1,14 +1,22 @@
+
 body {
     margin: 2em;
-    font-family: 'Fjalla One', sans-serif;
+    font: 20px Montserrat, sans-serif;
     font-size: 12pt;
     background: #fff;
 }
 
 #summary {
-    color: pink;
-    background: yellow;
+    color: #fff;
+    background: #1abc9c;
+    width: 30%;
     margin: 1.5em;
     padding: 1.5em;
     border: 0.3em double #000000ff;
+    font-weight: bold;
+    text-align: center;
+}
+
+#ordAss {
+    background: #1abc9c;
 }

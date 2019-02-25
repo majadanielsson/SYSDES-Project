@@ -61,29 +61,31 @@ var vm = new Vue({
             this.destMarker.on("drag", this.moveMarker);
             searchFromControl.addTo(this.map);
         }.bind(this));
-
+      
         // listen for the results event and add the result to the map
         searchFromControl.on("results", function(data) {
             this.fromMarker = L.marker(data.latlng, {icon: this.fromIcon, draggable: true}).addTo(this.map);
             this.fromMarker.on("drag", this.moveMarker);
             this.connectMarkers = L.polyline([this.fromMarker.getLatLng(), this.destMarker.getLatLng()], {color: 'blue'}).addTo(this.map);
         }.bind(this));
+  },
+  methods: {
+    placeOrder: function() {
+      socket.emit("placeOrder", { fromLatLong: [this.fromMarker.getLatLng().lat, this.fromMarker.getLatLng().lng],
+        destLatLong: [this.destMarker.getLatLng().lat, this.destMarker.getLatLng().lng],
+        expressOrAlreadyProcessed: this.express ? true : false,
+        orderDetails: { pieces: 1, spaceRequired: 3, totalGrams: 5600,  driverInstructions: "Beware of the dog" },
+        orderDroppedAtHub: false,
+        orderPickedUp: false
+      });
     },
-    methods: {
-        placeOrder: function() {
-            socket.emit("placeOrder", { fromLatLong: [this.fromMarker.getLatLng().lat, this.fromMarker.getLatLng().lng],
-                                        destLatLong: [this.destMarker.getLatLng().lat, this.destMarker.getLatLng().lng],
-                                        expressOrAlreadyProcessed: this.express ? true : false,
-                                        orderDetails: { pieces: 1, spaceRequired: 3, totalGrams: 5600,  driverInstructions: "Beware of the dog" }
-                                      });
-        },
-        getPolylinePoints: function() {
-            if (this.express) {
-                return [this.fromMarker.getLatLng(), this.destMarker.getLatLng()];
-            } else {
-                return [this.fromMarker.getLatLng(), this.baseMarker.getLatLng(), this.destMarker.getLatLng()];
-            }
-        },
+    getPolylinePoints: function() {
+      if (this.express) {
+        return [this.fromMarker.getLatLng(), this.destMarker.getLatLng()];
+      } else {
+        return [this.fromMarker.getLatLng(), this.baseMarker.getLatLng(), this.destMarker.getLatLng()];
+      }
+    },
         handleClick: function (event) {
             // first click sets pickup location
             if (this.fromMarker === null) {

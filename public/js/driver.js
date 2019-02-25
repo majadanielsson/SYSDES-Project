@@ -142,3 +142,48 @@ var vm = new Vue({
     },
   }
 });
+
+
+
+
+function showMap() {
+    
+    var node = document.getElementById("my-map");
+    if (node.style.height == "100vw") {
+        document.getElementsByClassName("bg-2")[0].style.display = "block";
+        document.getElementById("mapText").style.display = "block";
+        node.style.width = "30vw";
+        node.style.height = "15vw";
+	      node.style.border = "1px solid rgba(0,0,0,0.4)";
+	      node.style.boxShadow = "0px 10px 20px rgba(0, 0, 0, 0.3)";
+	      node.style.margin = "0px 0px 0px 60vw";
+    }
+    else {
+        document.getElementsByClassName("bg-2")[0].style.display = "none";
+        document.getElementById("mapText").style.display = "none";
+        node.style.width = "98.9vw";
+	      node.style.height = "100vw";
+	      node.style.border = "0px";
+	      node.style.boxShadow = "0px";
+        node.style.margin = "0px 0px 0px 0px";
+    }
+    return;    
+}
+
+function logOut() {
+    document.body.style.backgroundColor = "#1abc9c";
+    document.getElementById("mapC").style.display = "none";
+    document.getElementById("mainPage").style.display = "none";
+    document.getElementById("logIn").style.display = "block";
+    document.getElementsByClassName("bg-2")[0].style.display = "none";
+    return;
+}
+
+function signIn() {
+    document.body.style.backgroundColor = "#474e5d";
+    document.getElementById("mapC").style.display = "block";
+    document.getElementById("mainPage").style.display = "block";
+    document.getElementById("logIn").style.display = "none";
+    document.getElementsByClassName("bg-2")[0].style.display = "block";
+    return;
+}

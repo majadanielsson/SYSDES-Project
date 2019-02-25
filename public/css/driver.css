@@ -1,12 +1,59 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css?family=Fjalla+One");
 
-body {
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 12pt;
-  background: white;
-  margin: 2em 2em;
+html {
+    scroll-behavior: smooth;
 }
+
+/* Theme */
+body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+    background-color: #1abc9c; /* Green */
+}
+
+p {font-size: 16px;}
+.margin {margin-bottom: 45px;}
+.bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+}
+
+.bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+        display: none;
+}
+#mainPage {
+    display: none;
+}
+
+#mapC {
+    display: none;
+}
+#mapText {
+    
+}
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
+
+
+/*------------------------------*/
 
 #order {
   background: white;
@@ -24,13 +71,24 @@ button {
   background-color: #ff3232;
 }
 
+#signInB:hover {
+    background-color: #1abc9c;
+    
+}
+
 button:hover {
      background-color: lightGreen;
      cursor: pointer;
 }
+
 #my-map {
-  width: 30%;
-	height: 30vh;
-  margin-right: 5px;
-  margin-top: 100px;
+    width: 30vw;
+    height: 15vw;
+    margin: 0px 0px 0px 60vw;
+	  border: 0px;
+	  box-shadow: 0px;
 }
+
+
+
+

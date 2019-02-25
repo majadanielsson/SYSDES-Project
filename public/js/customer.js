@@ -76,6 +76,8 @@ var vm = new Vue({
         expressOrAlreadyProcessed: this.express ? true : false,
         orderDetails: { pieces: 1, spaceRequired: 3, totalGrams: 5600,  driverInstructions: "Beware of the dog" },
         orderDroppedAtHub: false,
+        orderDroppedAtHub2: false,
+        orderLeftHub: false,
         orderPickedUp: false,
         orderAssigned: false
       });

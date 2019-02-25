@@ -14,7 +14,8 @@ var vm = new Vue({
         baseMarker: null,
 
         checkedOrders: false,
-        driver: 0
+        driver: 0,
+        driverPicked: false
     },
 
     created: function () {
@@ -65,7 +66,7 @@ var vm = new Vue({
         socket.on('orderDroppedOffAtHub', function (order) {
             this.$set(this.orders, order.orderId, order);
         }.bind(this));
-        
+
         socket.on('orderDroppedOff', function (orderId) {
             Vue.delete(this.orders, orderId);
             this.map.removeLayer(this.customerMarkers[orderId].from);
@@ -174,6 +175,7 @@ var vm = new Vue({
             }
         },
         changeDriver: function (newDriver) {
+            this.driverPicked = true;
             this.driver = newDriver;
         },
         checkedOrdersFunq: function (orders) {

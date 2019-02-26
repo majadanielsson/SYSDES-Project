@@ -10,13 +10,13 @@ body {
     font: 20px Montserrat, sans-serif;
     line-height: 1.8;
     color: #f5f6f7;
-    background-color: #1abc9c; /* Green */
+    background-color: #11B29C; /* Green */
 }
 
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 .bg-1 {
-    background-color: #1abc9c; /* Green */
+    background-color: #11B29C; /* Green */
     color: #ffffff;
 }
 
@@ -49,7 +49,7 @@ p {font-size: 16px;}
     letter-spacing: 5px;
 }
 .navbar-nav  li a:hover {
-    color: #1abc9c !important;
+    color: #ff814c !important;
 }
 
 
@@ -72,8 +72,7 @@ button {
 }
 
 #signInB:hover {
-    background-color: #1abc9c;
-
+    background-color: #ff814c;
 }
 
 button:hover {

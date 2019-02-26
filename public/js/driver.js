@@ -147,7 +147,7 @@ var vm = new Vue({
 
 
 function showMap() {
-    
+
     var node = document.getElementById("my-map");
     if (node.style.height == "100vw") {
         document.getElementsByClassName("bg-2")[0].style.display = "block";
@@ -167,11 +167,11 @@ function showMap() {
 	      node.style.boxShadow = "0px";
         node.style.margin = "0px 0px 0px 0px";
     }
-    return;    
+    return;
 }
 
 function logOut() {
-    document.body.style.backgroundColor = "#1abc9c";
+    document.body.style.backgroundColor = "#11B29C";
     document.getElementById("mapC").style.display = "none";
     document.getElementById("mainPage").style.display = "none";
     document.getElementById("logIn").style.display = "block";

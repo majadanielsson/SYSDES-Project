@@ -82,7 +82,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="order in orders" v-if="!order.orderDroppedAtHub" id = "orderTable">
+              <tr v-for="order in orders" v-if="!order.orderDroppedAtHub && order.orderAssigned" id = "orderTable">
                 <!--<td><input type="checkbox" name="markedOrders" :id="order.orderId"></td>-->
                 <td># {{order.orderId}}</td>
                 <td v-if = "!order.orderDroppedAtHub2"> {{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>

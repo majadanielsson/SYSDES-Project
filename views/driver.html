@@ -72,7 +72,7 @@
 
           <br><br>
           <h3>Current orderlist</h3>
-          <table class="table table-hover table-bordered">
+          <table class="table table-hover table-bordered" >
             <thead>
               <tr>
                 <!--<th>Select order</th>-->
@@ -83,7 +83,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="order in orders" v-if="!order.orderDroppedAtHub">
+              <tr v-for="order in orders" v-if="!order.orderDroppedAtHub" id = "orderTable">
                 <!--<td><input type="checkbox" name="markedOrders" :id="order.orderId"></td>-->
                 <td># {{order.orderId}}</td>
                 <td v-if = "!order.orderDroppedAtHub2"> {{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
@@ -110,7 +110,7 @@
 
 
       <div id="mapC">
-        <span class="col-md-3 col-md-offset-5" id="mapText">Dubbleclick on the map for a bigger picture <span class="glyphicon glyphicon-circle-arrow-right"></span></span>
+        <span class="col-md-3 col-md-offset-5" id="mapText">Double click on the map for a bigger picture <span class="glyphicon glyphicon-circle-arrow-right"></span></span>
         <div id="my-map" ondblclick="showMap()"></div>
       </div>
 

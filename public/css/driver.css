@@ -73,7 +73,6 @@ button {
 
 #signInB:hover {
     background-color: #ff814c;
-
 }
 
 button:hover {
@@ -87,4 +86,8 @@ button:hover {
     margin: 0px 0px 0px 60vw;
 	  border: 0px;
 	  box-shadow: 0px;
+}
+
+#orderTable:hover {
+  background-color: #1abc9c;
 }

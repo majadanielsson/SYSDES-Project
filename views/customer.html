@@ -69,8 +69,11 @@
 
         <div id="my-map"></div><br>
 
-        In a hurry? Order Express delivery: <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express"></input><br><br>
-
+        In a hurry? Order Express delivery: <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express"></input><br>
+        <div>
+          <p v-if=express>Delivery in 1-2 days</p>
+          <p v-else>Delivery in 3-5 days</p><br>
+        </div>
         <a v-on:click="checkInput" href="#3Container" class="btn btn-default btn-lg">
           <span class="	glyphicon glyphicon-ok"></span> Satisfied? Continue here!
         </a>

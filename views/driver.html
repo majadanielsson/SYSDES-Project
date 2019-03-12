@@ -92,8 +92,8 @@
                 <td v-else>HUB</td>
                 <td>
                   <button class = "btn btn-primary" v-if="!order.orderPickedUp" v-on:click="orderPickedUp(order)">Picked up!</button>
-                  <button class = "btn btn-primary" v-if="!order.expressOrAlreadyProcessed" v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button>
-                  <button class = "btn btn-primary" v-if="order.expressOrAlreadyProcessed" v-on:click="orderDroppedOff(order)">Delivered to customer!</button></td>
+                  <button class = "btn btn-primary" v-if="!order.expressOrAlreadyProcessed && order.orderPickedUp" v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button>
+                  <button class = "btn btn-primary" v-if="order.expressOrAlreadyProcessed && order.orderPickedUp" v-on:click="orderDroppedOff(order)">Delivered to customer!</button></td>
               </tr>
             </tbody>
           </table>

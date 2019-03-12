@@ -15,7 +15,7 @@ var vm = new Vue({
         baseMarker: null,
         driverMarkers: {},
 
-        totalCost: 99,
+        totalCost: 0,
         warning: ""
     },
     created: function () {
@@ -114,26 +114,41 @@ var vm = new Vue({
             */
             //Add cost for express
             if((document.getElementsByName("express")[0]).checked) {
-                this.totalCost = 198;
+                this.totalCost = 99;
                 console.log(this.totalCost);
             }
             else {
-                this.totalCost = 99;
+                this.totalCost = 0;
+                console.log(this.totalCost);
             }
         },
-        checkInput: function () {
+        checkMapInput: function () {
             if (this.fromMarker != null && this.destMarker != null) {
-                show3Container();
+                showPackSize();
             }
             else {
                 this.warning = "Please enter pickup and drop off locations on the map";
             }
+        },
+        checkPackageInput: function () {
+          var packRadio = document.getElementsByName("packSize");
+          for (var i = 0; i < packRadio.length; i++) {
+            if (packRadio[i].checked) {
+              this.totalCost += parseInt(packRadio[i].value);
+              console.log(this.totalCost);
+            }
+          }
+          show3Container();
         }
+
     }
 });
 
 
-
+function showPackSize() {
+    var x = document.getElementById("pack-size");
+    x.style.display = "block";
+}
 
 function show3Container() {
     var x = document.getElementById("3Container");

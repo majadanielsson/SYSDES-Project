@@ -39,6 +39,12 @@ p {font-size: 16px;}
     background-color: #ffffff; /* White */
     color: #555555;
 }
+
+.bg-pack {
+  display: none;
+  background-color: #11B29C; /* Green #1abc9c*/
+  color: #ffffff;
+}
 #payment {
     display: none;
 }

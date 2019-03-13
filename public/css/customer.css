@@ -49,8 +49,11 @@ p {font-size: 16px;}
 .pickdrop {
   border-style: groove;
   border-color: #11B29C;
-  margin-left: 7.5em;
-  margin-right: 7.5em;
+  border-width: 0.8em;
+  background-color: #ffffff;
+  color: #555555;
+  margin-left: 7em;
+  margin-right: 7em;
   margin-bottom: 2em;
 }
 #payment {

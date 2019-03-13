@@ -116,13 +116,6 @@
           <div id="my-map"></div><br>
         </div>
 
-
-        In a hurry? Order Express delivery for 99 kr: <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express"></input><br>
-        <div>
-          <p v-if=express>Delivery in 1-2 days</p>
-          <p v-else>Delivery in 3-5 days</p><br>
-        </div>
-
         <a v-on:click="checkMapInput" href="#pack-size" class="btn btn-default btn-lg">
           <span class="	glyphicon glyphicon-ok"></span> Satisfied? Continue here!
         </a>
@@ -131,10 +124,17 @@
 
       <!-- Package size-->
       <div class="container-fluid bg-pack text-center" id="pack-size">
-        <h2 class="margin">Please specify package weight</h2>
-        <input type="radio" name="packSize" value="59" checked> Less than 1 kg - 59 kr</input><br>
-        <input type="radio" name="packSize" value="89"> 1-3 kg - 89 kr</input><br>
-        <input type="radio" name="packSize" value="99"> More than 3 kg - 99 kr</input><br>
+          <h2 class="margin">Please specify package weight</h2>
+          <div class="container-fluid packSize text-center">
+          <input type="radio" name="packSize" value="59" checked> Less than 1 kg - 59 kr</input><br>
+          <input type="radio" name="packSize" value="89"> 1-3 kg - 89 kr</input><br>
+          <input type="radio" name="packSize" value="99"> More than 3 kg - 99 kr</input>
+        </div><br>
+        In a hurry? Order Express delivery for 99 kr: <input type="checkbox" v-model="express" @change="moveMarker" name="express" value="express"></input><br>
+        <div>
+          <p v-if=express>Delivery in 1-2 days</p>
+          <p v-else>Delivery in 3-5 days</p><br>
+        </div>
         <a v-on:click="checkPackageInput" href="#3Container" class="btn btn-default btn-lg">
           <span class="	glyphicon glyphicon-ok"></span> OK?
         </a>

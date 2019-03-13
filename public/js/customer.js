@@ -123,12 +123,7 @@ var vm = new Vue({
             }
         },
         checkMapInput: function () {
-            if (this.fromMarker != null && this.destMarker != null) {
-                showPackSize();
-            }
-            else {
-                this.warning = "Please enter pickup and drop off locations on the map";
-            }
+            showPackSize();
         },
         checkPackageInput: function () {
           var packRadio = document.getElementsByName("packSize");

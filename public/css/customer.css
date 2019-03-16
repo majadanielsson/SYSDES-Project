@@ -39,6 +39,34 @@ p {font-size: 16px;}
     background-color: #ffffff; /* White */
     color: #555555;
 }
+
+.bg-pack {
+  display: none;
+  background-color: #11B29C; /* Green #1abc9c*/
+  color: #ffffff;
+}
+
+.pickdrop {
+  border-style: groove;
+  border-color: #11B29C;
+  border-width: 0.8em;
+  background-color: #79849b;
+  color: Black;
+  margin-left: 7em;
+  margin-right: 7em;
+  margin-bottom: 2em;
+}
+
+.packSize {
+  border-style: groove;
+  border-color: #474e5d;
+  border-width: 0.5em;
+  background-color: #8dc6bf;
+  margin-left: 25em;
+  margin-right: 25em;
+
+}
+
 #payment {
     display: none;
 }

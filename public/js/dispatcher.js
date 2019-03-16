@@ -192,6 +192,7 @@ var vm = new Vue({
                 array[i].driverId = this.driver;
                 this.assignDriver(array[i]);
                 array[i].orderAssigned = true;
+                console.log(array[i].orderAssigned);
             }
         },
         changeDriverPu: function (newDriver) {

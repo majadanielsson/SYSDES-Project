@@ -18,15 +18,70 @@
     <script src="js/dispatcher.js" defer></script>
   </head>
   <body>
-    
-    <!-- Navbar -->
-    <nav class="navbar navbar-default">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+
+    <div class="container">
+      <div id="page">
+
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">SysDes projekt prototype Driver</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/" target="_blank">Customer</a></li>
+                <li><a href="/dispatcher" target="_blank">Dispatcher</a></li>
+                <li><a href="/driver" target="_blank">Driver</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!------------------------------------>
+
+
+        <!---------- Table with orders "Hämtning"-------------->
+        <h3>Orders to pick up</h3>
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>To assign</th>
+              <th>Order ID</th>
+              <th>Pick up location</th>
+              <th>Drop of location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="order in orders" v-if="!order.orderDroppedAtHub2 && !order.orderAssigned">
+              <td><input type="checkbox" name="checkboxPick" :id="order.orderId"></td>
+              <td># {{order.orderId}}</td>
+              <td>{{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
+              <td v-if="order.expressOrAlreadyProcessed" v-if="order.orderPickedUp">{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
+              <td v-else>HUB</td>
+            </tr>
+
+            <tr id="ordAss" v-for="order in orders" v-if="!order.orderDroppedAtHub2 && order.orderAssigned">
+              <td></td>
+              <td># {{order.orderId}}</td>
+              <td>{{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
+              <td v-if="order.expressOrAlreadyProcessed" v-if="order.orderPickedUp">{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
+              <td v-else>HUB</td>
+            </tr>
+          </tbody>
+        </table>
+        <!------------------------------------>
+
+
+        <!-------- Dropdown for cars -------->
+        <div class="dropdown">
+          <button id="buttons" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pick a driver
+            <span class="caret"></span>
           </button>
           <a class="navbar-brand" href="#">SysDes projekt prototype Driver</a>
         </div>

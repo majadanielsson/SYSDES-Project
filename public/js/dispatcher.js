@@ -22,6 +22,10 @@ var vm = new Vue({
     },
 
     created: function () {
+        socket.emit("driverQuit", 10);
+        socket.emit("driverQuit", 11);
+        socket.emit("driverQuit", 12);
+
         //dummy orders
         socket.emit("placeOrder", { fromLatLong: [59.849, 17.7],
           destLatLong: [59.845, 17.66],
@@ -55,9 +59,26 @@ var vm = new Vue({
         });
         //end of dummy orders
 
+        socket.emit("addDriver", {driverId: 10,
+          latLong: [59.849, 17.66],
+          maxCapacity: 30,
+          usedCapacity: 10
+        });
+        socket.emit("addDriver", {driverId: 11,
+          latLong: [59.838, 17.57],
+          maxCapacity: 30,
+          usedCapacity: 10
+        });
+        socket.emit("addDriver", {driverId: 12,
+          latLong: [59.834, 17.7],
+          maxCapacity: 30,
+          usedCapacity: 10
+        });
+
         socket.on('initialize', function (data) {
             this.orders = data.orders;
             this.drivers = data.drivers;
+
             // add marker for home base in the map
             this.baseMarker = L.marker(data.base, {icon: this.baseIcon}).addTo(this.map);
             this.baseMarker.bindPopup("This is the dispatch and routing center");

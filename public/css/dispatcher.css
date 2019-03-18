@@ -1,14 +1,64 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css?family=Fjalla+One");
+@import url("https://fonts.googleapis.com/css?family=Lato:900");
 
-h1 {
-    text-align: center;
+html {
+    scroll-behavior: smooth;
 }
 
+/* Theme */
 body {
-    margin: 2em;
     font: 20px Montserrat, sans-serif;
-    font-size: 12pt;
-    background: #fff;
+    line-height: 1.8;
+    color: #f5f6f7;
 }
+
+p {font-size: 16px;}
+.margin {margin-bottom: 45px;}
+.bg-1 {
+    background-color: white; /* white*/
+    color: black;
+}
+.bg-2 {
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+}
+.bg-3 {
+    display: none;
+    background-color: #ffffff; /* White */
+    color: #555555;
+}
+.bg-4 {
+    background-color: #ff814c; /* Orange */
+    color: #fff;
+}
+.bg-5 {
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+}
+.container-fluid {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.container-footer {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #ff814c !important;
+}
+
+/*--------------------------------------*/
+
 
 #summary {
     color: #fff;
@@ -26,32 +76,15 @@ body {
 }
 
 #buttons {
-  background: #474e5d;
+    background: #474e5d;
+    float:left;
 }
 
-.margin {margin-bottom: 45px;}
-.bg-1 {
-    background-color: #11B29C; /* Green */
-    color: #ffffff;
-}
-.bg-2 {
-    background-color: #474e5d; /* Dark Blue */
-    color: #ffffff;
-    display: none;
-}
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
-}
-.navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-}
-.navbar-nav  li a:hover {
-    color: #ff814c !important;
+#my-map {
+    margin: 0px 0px 0px 0px;
+    border: 0px;
+    float:rigth;
+	  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	  width: 100%;
+	  height: 100vh;    
 }

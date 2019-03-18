@@ -8,7 +8,7 @@ var vm = new Vue({
     el: '#page',
     data: {
         express: null,
-        orderId: null,
+        orderId: 1002,
         map: null,
         fromMarker: null,
         destMarker: null,
@@ -81,6 +81,10 @@ var vm = new Vue({
         orderPickedUp: false,
         orderAssigned: false
       });
+    },
+    showOrderNumber: function() {
+      this.orderId += 1;
+      return this.orderId;
     },
     getPolylinePoints: function() {
       if (this.express) {

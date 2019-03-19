@@ -96,14 +96,15 @@
                     <tr v-for="order in orders" v-if="!order.orderDroppedAtHub" id = "orderTable">
                       <!--<td><input type="checkbox" name="markedOrders" :id="order.orderId"></td>-->
                       <td># {{order.orderId}}</td>
-                      <td v-if = "!order.orderDroppedAtHub2"> {{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
+                      <td v-if="!order.orderDroppedAtHub2"> {{ order.fromLatLong[0].toFixed(3) }}, {{ order.fromLatLong[1].toFixed(3) }}</td>
                       <td v-else>HUB</td>
                       <td v-if="order.expressOrAlreadyProcessed || order.orderDroppedAtHub2">{{ order.destLatLong[0].toFixed(3) }}, {{ order.destLatLong[1].toFixed(3) }}</td>
                       <td v-else>HUB</td>
                       <td>
                         <button class = "btn btn-primary" v-if="!order.orderPickedUp" v-on:click="orderPickedUp(order)">Picked up!</button>
                         <button class = "btn btn-primary" v-if="!order.expressOrAlreadyProcessed && order.orderPickedUp" v-on:click="orderDroppedOffAtHub(order)">Dropped off at hub!</button>
-                        <button class = "btn btn-primary" v-if="order.expressOrAlreadyProcessed && order.orderPickedUp" v-on:click="orderDroppedOff(order)">Delivered to customer!</button></td>
+                        <button class = "btn btn-primary" v-if="order.expressOrAlreadyProcessed && order.orderPickedUp" v-on:click="orderDroppedOff(order)">Delivered to customer!</button>
+                      </td>
                     </tr>
                   </tbody>
                 </table>

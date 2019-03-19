@@ -8,7 +8,7 @@ var vm = new Vue({
     el: '#page',
     data: {
         express: null,
-        orderId: null,
+        orderId: 1002,
         map: null,
         fromMarker: null,
         destMarker: null,
@@ -21,8 +21,8 @@ var vm = new Vue({
     created: function () {
         socket.on('initialize', function (data) {
             // add marker for home base in the map
-            this.baseMarker = L.marker(data.base, {icon: this.baseIcon}).addTo(this.map);
-            this.baseMarker.bindPopup("This is the dispatch and routing center");
+            //this.baseMarker = L.marker(data.base, {icon: this.baseIcon}).addTo(this.map);
+            //this.baseMarker.bindPopup("This is the dispatch and routing center");
         }.bind(this));
         socket.on('orderId', function (orderId) {
             this.orderId = orderId;
@@ -42,7 +42,7 @@ var vm = new Vue({
     },
     mounted: function () {
         // set up the map
-        this.map = L.map('my-map').setView([59.8415,17.648], 13);
+        //this.map = L.map('my-map').setView([59.8415,17.648], 13);
 
         // create the tile layer with correct attribution
         var osmUrl='http://{s}.tile.osm.org/{z}/{x}/{y}.png';
@@ -71,9 +71,7 @@ var vm = new Vue({
   },
   methods: {
     placeOrder: function() {
-      socket.emit("placeOrder", { fromLatLong: [this.fromMarker.getLatLng().lat, this.fromMarker.getLatLng().lng],
-        destLatLong: [this.destMarker.getLatLng().lat, this.destMarker.getLatLng().lng],
-        expressOrAlreadyProcessed: this.express ? true : false,
+      socket.emit("placeOrder", { expressOrAlreadyProcessed: this.express ? true : false,
         orderDetails: { pieces: 1, spaceRequired: 3, totalGrams: 5600,  driverInstructions: "Beware of the dog" },
         orderDroppedAtHub: false,
         orderDroppedAtHub2: false,
@@ -81,6 +79,10 @@ var vm = new Vue({
         orderPickedUp: false,
         orderAssigned: false
       });
+    },
+    showOrderNumber: function() {
+      this.orderId += 1;
+      return this.orderId;
     },
     getPolylinePoints: function() {
       if (this.express) {

@@ -13,17 +13,6 @@ body {
     color: #f5f6f7;
 }
 
-#header1 {
-    font-family: 'Lato', sans-serif;
-    font-size: 90px;
-}
-
-#t1 {color: #474e5d;}
-
-#button {background-color: #474e5d;}
-
-#detail {color: #11B29C;}
-
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 .bg-1 {
@@ -39,6 +28,7 @@ p {font-size: 16px;}
     background-color: #ffffff; /* White */
     color: #555555;
 }
+
 
 .bg-pack {
   display: none;
@@ -70,6 +60,7 @@ p {font-size: 16px;}
 #payment {
     display: none;
 }
+
 .bg-4 {
     background-color: #ff814c; /* Orange */
     color: #fff;
@@ -98,25 +89,17 @@ p {font-size: 16px;}
 /*--------------------------------------*/
 
 
-/*
-body {
-  margin: 2em;
-  font-family: 'Fjalla One', sans-serif;
-  font-size: 12pt;
-  background: #ead1dcff;
-}
-
-#personalInfo {
-  margin: 1.5em;
-  padding: 1.5em;
-  border: 0.3em double #FFFFFF;
-}
-
 #payment {
-  margin: 1.5em;
-  padding: 1.5em;
-  border: 0.3em double #FFFFFF;
+    display: none;
 }
-#whole {
 
+#header1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 90px;
 }
+
+#t1 {color: #474e5d;}
+
+#button {background-color: #474e5d;}
+
+#detail {color: #11B29C;}

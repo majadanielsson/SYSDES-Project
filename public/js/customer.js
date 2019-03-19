@@ -169,5 +169,8 @@ function showPayment() {
     var x = document.getElementById("payment");
     x.style.display = "block";
     return;
+}
 
+function cardInfo() {
+  console.log("Heeeeeeej");
 }

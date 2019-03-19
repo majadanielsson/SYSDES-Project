@@ -18,16 +18,16 @@ body {
     font-size: 90px;
 }
 
-#t1 {color: #474e5d;}
+#t1 {color: #474e5d;} /* Dark Blue */
 
-#button {background-color: #474e5d;}
+#button {background-color: #474e5d;} /* Dark Blue */
 
-#detail {color: #11B29C;}
+#detail {color: #11B29C;} /* Green */
 
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 .bg-1 {
-    background-color: #11B29C; /* Green #1abc9c*/
+    background-color: #11B29C; /* Green */
     color: #ffffff;
 }
 .bg-2 {
@@ -42,7 +42,7 @@ p {font-size: 16px;}
 
 .bg-pack {
   display: none;
-  background-color: #11B29C; /* Green #1abc9c*/
+  background-color: #11B29C; /* Green */
   color: #ffffff;
 }
 
@@ -93,6 +93,32 @@ p {font-size: 16px;}
 }
 .navbar-nav  li a:hover {
     color: #ff814c !important;
+}
+
+.payment .form-group {
+    float: left;
+    margin-bottom: 15px;
+}
+.payment .form-control {
+    line-height: 40px;
+    height: auto;
+    padding: 0 16px;
+}
+.owner {
+    width: 63%;
+    margin-right: 10px;
+}
+.CVV {
+    width: 35%;
+}
+#card-number-field {
+    width: 100%;
+}
+
+#ex-date {color: #2f2f2f;}
+#pO-button {
+  background-color: #fff;
+  color: #2f2f2f;
 }
 
 /*--------------------------------------*/

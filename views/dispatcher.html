@@ -85,6 +85,7 @@
               <button id="buttons" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Pick a driver
                 <span class="caret"></span>
               </button>
+              <br>
               <ul class="dropdown-menu">
                 <li v-for="driver in drivers">
                   <a v-on:click="changeDriverPu(driver.driverId);checkedOrdersFunqPu(orders);" >Driver {{driver.driverId}} </a>

@@ -13,7 +13,8 @@ var vm = new Vue({
         driverLocation: null,
         orders: {},
         customerMarkers: {},
-        baseMarker: null
+        baseMarker: null,
+        showCustomer: false
     },
     created: function () {
         socket.on('initialize', function (data) {
@@ -109,10 +110,14 @@ var vm = new Vue({
         orderDroppedOffAtHub: function (order) {
             order.orderDroppedAtHub = true;
             order.orderDroppedAtHub2 = true;
+            order.showCustomer = true;
             this.map.removeLayer(this.customerMarkers[order.orderId].from);
             this.map.removeLayer(this.customerMarkers[order.orderId].dest);
             this.map.removeLayer(this.customerMarkers[order.orderId].line);
             socket.emit("orderDroppedOffAtHub", order);
+        },
+        orderShowCustomer: function(order) {
+          order.showCustomer = true;
         },
         orderDroppedOff: function (order) {
             Vue.delete(this.orders, order.orderId);
@@ -148,7 +153,7 @@ var vm = new Vue({
 
 function showMap() {
     console.log("showMap()");
-    
+
     var node = document.getElementById("my-map");
     if (document.getElementById("mapSection").classList.contains("col-lg-12")) {
         console.log("minimize map");

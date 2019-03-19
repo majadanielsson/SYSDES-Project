@@ -22,15 +22,9 @@ var vm = new Vue({
     },
 
     created: function () {
-<<<<<<< HEAD
-        //socket.emit("driverQuit", 10);
-        //socket.emit("driverQuit", 11);
-        //socket.emit("driverQuit", 12);
-=======
 //        socket.emit("driverQuit", 10);
   //      socket.emit("driverQuit", 11);
-    //    socket.emit("driverQuit", 12);
->>>>>>> d19b167cfb7ed2104ddbfb7900647f43ae21699c
+    //   socket.emit("driverQuit", 12);
 
         //dummy orders
         socket.emit("placeOrder", { fromLatLong: [59.849, 17.7],
@@ -64,12 +58,7 @@ var vm = new Vue({
           orderAssigned: false
         });
         //end of dummy orders
-<<<<<<< HEAD
-
-        /*socket.emit("addDriver", {driverId: 10,
-=======
 /*      socket.emit("addDriver", {driverId: 10,
->>>>>>> d19b167cfb7ed2104ddbfb7900647f43ae21699c
           latLong: [59.849, 17.66],
           maxCapacity: 30,
           usedCapacity: 10
